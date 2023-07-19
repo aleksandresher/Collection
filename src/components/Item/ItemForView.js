@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 function ItemForView() {
   const { t } = useTranslation();
+  console.log("some random text");
   const { collectionId, itemId } = useParams();
   const [item, setItem] = useState();
   const [tagItem, setTagItem] = useState();
