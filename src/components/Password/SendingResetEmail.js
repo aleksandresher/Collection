@@ -16,7 +16,7 @@ function SendingResetEmail() {
     }
   }, [message]);
   function handleSendingLink(email) {
-    fetch("http://localhost:8080/password-reset", {
+    fetch("https://usercollection.onrender.com/password-reset", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

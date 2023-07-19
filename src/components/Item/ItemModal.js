@@ -35,19 +35,22 @@ function ItemModal({ dynamicFields, changeModal, updateValue }) {
   }, []);
   function createItem(collectionId, item) {
     const { name, dynamicFields, tags } = item;
-    fetch("http://localhost:8080/collections/addItem/" + collectionId, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        item: {
-          name: name,
-          dynamicFields: dynamicFields,
-          tags: tags,
+    fetch(
+      "https://usercollection.onrender.com/collections/addItem/" + collectionId,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }),
-    })
+        body: JSON.stringify({
+          item: {
+            name: name,
+            dynamicFields: dynamicFields,
+            tags: tags,
+          },
+        }),
+      }
+    )
       .then((res) => {
         if (res.status !== 200) {
           console.log("Error updating collections.");

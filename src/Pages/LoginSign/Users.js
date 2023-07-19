@@ -49,7 +49,7 @@ function UsersPage({ toggleStatus }) {
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
-    fetch("http://localhost:8080/users/getUsers/" + userId, {})
+    fetch("https://usercollection.onrender.com/users/getUsers/" + userId, {})
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");
@@ -65,7 +65,7 @@ function UsersPage({ toggleStatus }) {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8080/collections/getCollections/" + userId, {})
+    fetch("https://usercollection.onrender.com/collections/getCollections/" + userId, {})
       .then((res) => {
         if (res.status !== 200) {
           console.log("Error retrieving collections.");
@@ -82,7 +82,7 @@ function UsersPage({ toggleStatus }) {
   }, [modal, checkState]);
 
   function deleteCollection(collectionId) {
-    fetch("http://localhost:8080/collections/delete/" + collectionId, {
+    fetch("https://usercollection.onrender.com/collections/delete/" + collectionId, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

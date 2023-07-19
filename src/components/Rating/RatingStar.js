@@ -8,7 +8,7 @@ function RatingStar({ collectionId, averagescore }) {
   const userId = localStorage.getItem("userId");
 
   function rateCollection(collectionId, userId, rating) {
-    const url = `http://localhost:8080/collections/rate/${userId}/${collectionId}`;
+    const url = `https://usercollection.onrender.com/collections/rate/${userId}/${collectionId}`;
 
     fetch(url, {
       method: "PUT",

@@ -13,7 +13,7 @@ function BiggestColl() {
     const getBiggestColls = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/collections/getBiggestCollectionsIds"
+          "https://usercollection.onrender.com/collections/getBiggestCollectionsIds"
         );
         const data = await response.json();
         setCollections(data);

@@ -26,7 +26,9 @@ export default function Tags({ onChange }) {
     if (searchKeyword.trim() === "") {
       return;
     }
-    fetch(`http://localhost:8080/collections/tags?query=${searchKeyword}`)
+    fetch(
+      `https://usercollection.onrender.com/collections/tags?query=${searchKeyword}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data);

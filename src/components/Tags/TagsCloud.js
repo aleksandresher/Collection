@@ -6,7 +6,7 @@ function TagsCloud() {
   const [foundedItems, setFoundedItem] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:8080/collections/getTags", {
+    fetch("https://usercollection.onrender.com/collections/getTags", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ function TagsCloud() {
   }, []);
 
   function searchItemsByTag(tag) {
-    fetch(`http://localhost:8080/collections/search?tag=${tag}`)
+    fetch(`https://usercollection.onrender.com/collections/search?tag=${tag}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to search items by tag");

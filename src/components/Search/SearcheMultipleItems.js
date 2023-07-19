@@ -7,7 +7,7 @@ function MultipleItems() {
   const [itemsData, setItemsData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/items/${itemsIds}`, {
+    fetch(`https://usercollection.onrender.com/collections/items/${itemsIds}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

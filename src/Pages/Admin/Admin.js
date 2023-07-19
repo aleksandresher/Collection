@@ -42,7 +42,7 @@ function AdminPanel() {
   }
   function deleteUser() {
     console.log("clicked");
-    fetch("http://localhost:8080/admin/delete", {
+    fetch("https://usercollection.onrender.com/admin/delete", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function AdminPanel() {
   }
 
   function BlockUser() {
-    fetch("http://localhost:8080/admin/block", {
+    fetch("https://usercollection.onrender.com/admin/block", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function AdminPanel() {
   }
 
   function UnblockUser() {
-    fetch("http://localhost:8080/admin/unblock", {
+    fetch("https://usercollection.onrender.com/admin/unblock", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -128,7 +128,7 @@ function AdminPanel() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin", {
+    fetch("https://usercollection.onrender.com/admin", {
       method: "GET",
     })
       .then((res) => {
@@ -150,7 +150,7 @@ function AdminPanel() {
   }, [click]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/admin", {
+    fetch("https://usercollection.onrender.com/admin/admin", {
       method: "GET",
     })
       .then((res) => {

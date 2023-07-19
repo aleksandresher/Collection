@@ -37,7 +37,7 @@ function SingIn() {
   function loginHandler(event) {
     event.preventDefault();
     setLoader(true);
-    fetch("http://localhost:8080/", {
+    fetch("https://usercollection.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

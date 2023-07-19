@@ -10,7 +10,7 @@ function Search() {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8080/collections/search/${searchQuery}`
+        `https://usercollection.onrender.com/collections/search/${searchQuery}`
       );
       const data = await response.json();
       setSearchResults(data);

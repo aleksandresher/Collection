@@ -25,7 +25,9 @@ function SingleItem() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/getItem/${collectionId}/${itemId}`)
+    fetch(
+      `https://usercollection.onrender.com/collections/getItem/${collectionId}/${itemId}`
+    )
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");
@@ -41,7 +43,7 @@ function SingleItem() {
   }, []);
 
   function fetchUsernames(userIds) {
-    return fetch("http://localhost:8080/users/getUsersNames", {
+    return fetch("https://usercollection.onrender.com/users/getUsersNames", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +68,7 @@ function SingleItem() {
 
   function likeItem(userId, collectionId, itemId) {
     fetch(
-      `http://localhost:8080/collections/likeItem/${userId}/${collectionId}/${itemId}`,
+      `https://usercollection.onrender.com/collections/likeItem/${userId}/${collectionId}/${itemId}`,
       {
         method: "PUT",
         headers: {
@@ -90,7 +92,7 @@ function SingleItem() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/item/${itemId}`)
+    fetch(`https://usercollection.onrender.com/collections/item/${itemId}`)
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");

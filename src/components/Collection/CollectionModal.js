@@ -100,7 +100,7 @@ function CollectionModal({ modalActive, userId, collectionId }) {
 
   function createCollection(event, collections, userId, fields) {
     event.preventDefault();
-    fetch("http://localhost:8080/collections/create", {
+    fetch("https://usercollection.onrender.com/collections/create", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

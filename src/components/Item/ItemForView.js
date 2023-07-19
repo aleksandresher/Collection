@@ -11,7 +11,9 @@ function ItemForView() {
   const [tagItem, setTagItem] = useState();
   console.log(`collectionId: ${collectionId}, itemId: ${itemId}`);
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/getItem/${collectionId}/${itemId}`)
+    fetch(
+      `https://usercollection.onrender.com/collections/getItem/${collectionId}/${itemId}`
+    )
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");
@@ -27,7 +29,7 @@ function ItemForView() {
   }, [collectionId, itemId]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/item/${itemId}`)
+    fetch(`https://usercollection.onrender.com/collections/item/${itemId}`)
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");

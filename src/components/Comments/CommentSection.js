@@ -14,7 +14,7 @@ function CommentSection({ itemId, collectionId, item }) {
 
   function sendComment(userId) {
     fetch(
-      `http://localhost:8080/collections/addComment/${collectionId}/${itemId}`,
+      `https://usercollection.onrender.com/collections/addComment/${collectionId}/${itemId}`,
       {
         method: "PUT",
         headers: {
@@ -43,7 +43,7 @@ function CommentSection({ itemId, collectionId, item }) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8080/collections/getComments/${collectionId}/${itemId}`
+      `https://usercollection.onrender.com/collections/getComments/${collectionId}/${itemId}`
     )
       .then((res) => {
         if (res.status !== 200) {

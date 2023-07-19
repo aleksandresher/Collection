@@ -11,7 +11,9 @@ function CollectionForView() {
     navigate(`/guest/${collectionId}/${itemId}`);
   }
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/singleCollection/${collectionId}`)
+    fetch(
+      `https://usercollection.onrender.com/collections/singleCollection/${collectionId}`
+    )
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");

@@ -62,7 +62,7 @@ function SingleCollection() {
   const collectionId = localStorage.getItem("CollectionId");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/singleCollection/${collectionId}`)
+    fetch(`https://usercollection.onrender.com/collections/singleCollection/${collectionId}`)
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");
@@ -85,7 +85,7 @@ function SingleCollection() {
 
   function deleteItem(collectionId, itemId) {
     fetch(
-      `http://localhost:8080/collections/delete/${collectionId}/${itemId}`,
+      `https://usercollection.onrender.com/collections/delete/${collectionId}/${itemId}`,
       {
         method: "DELETE",
         headers: {
@@ -108,7 +108,7 @@ function SingleCollection() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/getItems/${collectionId}`)
+    fetch(`https://usercollection.onrender.com/collections/getItems/${collectionId}`)
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");

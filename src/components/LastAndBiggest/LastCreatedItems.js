@@ -7,7 +7,7 @@ function LastCreatedItems() {
   const [lastItems, setLastItems] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:8080/collections/lastCollections`)
+    fetch(`https://usercollection.onrender.com/collections/lastCollections`)
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");

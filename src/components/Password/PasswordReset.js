@@ -25,7 +25,7 @@ const PasswordReset = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/reset-password?token=${token}`,
+        `https://usercollection.onrender.com/reset-password?token=${token}`,
         {
           method: "POST",
           headers: {
