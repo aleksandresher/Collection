@@ -136,6 +136,10 @@ const ItemModalContainer = styled.div`
   height: 600px;
   padding: 30px;
   background-color: #f8f8f8;
+
+  @media (max-width: 440px) {
+    width: 400px;
+  }
 `;
 
 const InputContainer = styled.div`

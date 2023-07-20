@@ -45,50 +45,95 @@ function HomePage() {
   }
 
   return (
-    <div>
+    <HomePageWrapper>
       <Header>
+        <Logo src={process.env.PUBLIC_URL + "/assets/svg.png"} />
         <Search />
-        <LanguageButton />
-        <PersonalPageBtn onClick={() => handleRouteToPersonal()}>
-          {t("goto")}
-        </PersonalPageBtn>
-        <SignInWrapper onClick={() => handleSignInLogOut()}>
-          <SignInBtn src={process.env.PUBLIC_URL + "/assets/user.png"} />
-          {userId ? <p>{t("logout")}</p> : <p>{t("signIn")}</p>}
-        </SignInWrapper>
+        <BtnWrapper>
+          <LanguageButton />
+          <PersonalPageBtn onClick={() => handleRouteToPersonal()}>
+            {t("profile")}
+          </PersonalPageBtn>
+          <SignInBtn onClick={() => handleSignInLogOut()}>
+            {userId ? <p>{t("logout")}</p> : <p>{t("signIn")}</p>}
+          </SignInBtn>
+        </BtnWrapper>
       </Header>
       <TagsCloud />
       <BiggestColls />
       <LastCreatedItems />
-    </div>
+    </HomePageWrapper>
   );
 }
 export default HomePage;
 
-const SignInWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+const HomePageWrapper = styled.div`
+  background-color: #f1f1f1;
+  height: 100%;
+
+  @media (max-width: 440px) {
+    width: 440px;
+  }
 `;
-const SignInBtn = styled.img`
-  width: 24px;
-  height: 24px;
+
+const SignInBtn = styled.button`
+  width: 70px;
+  height: 30px;
+  background-color: #ec3120;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+
+  @media (max-width: 440px) {
+    width: 60px;
+    grid-area: d;
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  background-color: #dfdfdf;
   padding-top: 10px;
+  height: 120px;
 `;
 
 const PersonalPageBtn = styled.button`
   background-color: #66de7b;
   border: none;
   padding: 4px;
+  height: 30px;
   border-radius: 8px;
-  margin-left: 20px;
   cursor: pointer;
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+`;
+const BtnWrapper = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 60px;
+
+  @media (max-width: 440px) {
+    font-size: 16px;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "a a b"
+      "a a b"
+      "c d d";
+  }
+`;
+const Logo = styled.img`
+  width: 50px;
+  height: 50px;
+
+  @media (max-width: 440px) {
+    width: 30px;
+    height: 30px;
+  }
 `;

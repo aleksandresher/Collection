@@ -144,7 +144,16 @@ export default CustomFields;
 const FieldsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  background-color: rgb(248, 248, 248);
+  min-heght: 300px;
   gap: 20px;
+
+  @media (max-width: 440px) {
+    width: 390px;
+    padding: 10px;
+  }
 `;
 const FieldInputWrapper = styled.div`
   display: flex;
@@ -207,6 +216,7 @@ const FieldSelect = styled.select`
 const OutputField = styled.div`
   display: flex;
   gap: 5px;
+  background-color: rgb(248, 248, 248);
 
   @media (max-width: 440px) {
     width: 300px;

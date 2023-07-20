@@ -55,7 +55,7 @@
   "cancel": "cancel",
   "update": "update",
   "category": "category",
-  "goto": "Open Personal Page",
+  "profile": "profile",
   "password": "Password",
   "forgot": "Forgot password?",
   "newAccount": "Create new account",
@@ -65,5 +65,7 @@
   "emailSendText": "Message with link to reset password will sent to this email!",
   "enterEmailInput": "enter email",
   "send": "send",
-  "linkSend": "Password reset link was sent to your email."
+  "linkSend": "Password reset link was sent to your email.",
+  "image": "image",
+  "manage": "manage"
 }

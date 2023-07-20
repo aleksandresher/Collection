@@ -33,19 +33,15 @@ function CollectionForView() {
         <THREAD>
           <TR>
             <TH>Name</TH>
-            <TH>Category</TH>
-
             <TH>Tags</TH>
-            <TH></TH>
+            <TH>Manage</TH>
           </TR>
         </THREAD>
         <tbody>
           {collection?.collection.items.map((item, index) => (
             <TR key={index}>
               <TD>{item.name}</TD>
-              <TD>{item.categoty}</TD>
-
-              <TD></TD>
+              <TD>{item.tags}</TD>
               <TD>
                 <OpenBtn onClick={() => handleItemRoute(item._id)}>
                   Open

@@ -157,7 +157,6 @@ function SignUp() {
 export default SignUp;
 
 const SignUpContainer = styled.div`
-  width: 100%;
   margin: 50px;
   display: flex;
   flex-direction: column;

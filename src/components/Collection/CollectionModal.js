@@ -215,6 +215,11 @@ const ModalContainer = styled.div`
   height: 600px;
   padding: 30px;
   background-color: #f8f8f8;
+
+  @media (max-width: 440px) {
+    padding: 10px;
+    width: 440px;
+  }
 `;
 const InputContainer = styled.div`
   display: flex;
@@ -303,6 +308,7 @@ const CollectionBtnContainer = styled.div`
   margin-top: 10px;
 
   @media (max-width: 440px) {
+    width: 390px;
     justify-content: flex-start;
   }
 `;

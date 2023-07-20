@@ -178,7 +178,8 @@ export default SingleItem;
 const SingleItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  align-items: flex-start;
+  padding: 10px;
   gap: 15px;
   position: relative;
 `;
@@ -212,8 +213,9 @@ const EditBtn = styled.button`
   cursor: pointer;
 `;
 const EditFormWrapper = styled.div`
-  position: absolute;
-  top: 400px;
+  @media (max-width: 440px) {
+    width: 400px;
+  }
 `;
 const TagsContainer = styled.div`
   display: flex;

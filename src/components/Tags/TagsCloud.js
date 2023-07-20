@@ -86,9 +86,10 @@ const TagsContainer = styled.div`
 `;
 const TagsBox = styled.div`
   display: flex;
+  align-items: center;
   height: 30px;
-  background-color: #77e089;
-  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 10px;
   cursor: pointer;
   border-radius: 10px;
 `;

@@ -26,7 +26,7 @@ function LastCreatedItems() {
       <LastItemsHeader>{t("lastItems")}</LastItemsHeader>
       <LastItemsContainer>
         {lastItems[0]?.lastCreatedItems.map((item) => (
-          <div key={item._id}>
+          <LastItemBox key={item._id}>
             <ItemText>
               {t("name")}: {item.name}
             </ItemText>
@@ -36,7 +36,7 @@ function LastCreatedItems() {
             <ItemText>
               {t("author")}: {item.author}
             </ItemText>
-          </div>
+          </LastItemBox>
         ))}
       </LastItemsContainer>
     </LastItemsWrapper>
@@ -47,10 +47,12 @@ export default LastCreatedItems;
 const LastItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+
   gap: 20px;
   align-items: center;
-  margin-bottom: 150px;
+  margin-top: 30px;
+  background-color: #f1f1f1;
+  padding-bottom: 30px;
 `;
 
 const LastItemsContainer = styled.div`
@@ -58,6 +60,10 @@ const LastItemsContainer = styled.div`
   width: 80%;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: 440px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ItemText = styled.p`
@@ -73,4 +79,13 @@ const LastItemsHeader = styled.h1`
 const ItemImage = styled.img`
   width: 300px;
   height: auto;
+`;
+
+const LastItemBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
 `;

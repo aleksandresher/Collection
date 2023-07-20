@@ -62,7 +62,9 @@ function SingleCollection() {
   const collectionId = localStorage.getItem("CollectionId");
 
   useEffect(() => {
-    fetch(`https://usercollection.onrender.com/collections/singleCollection/${collectionId}`)
+    fetch(
+      `https://usercollection.onrender.com/collections/singleCollection/${collectionId}`
+    )
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");
@@ -108,7 +110,9 @@ function SingleCollection() {
   }
 
   useEffect(() => {
-    fetch(`https://usercollection.onrender.com/collections/getItems/${collectionId}`)
+    fetch(
+      `https://usercollection.onrender.com/collections/getItems/${collectionId}`
+    )
       .then((res) => {
         if (res.status !== 200) {
           throw new Error("Failed to fetch status");
@@ -181,8 +185,8 @@ function SingleCollection() {
               <TH>{t("name")}</TH>
               <TH>ID</TH>
               <TH>{t("tags")}</TH>
-              <TH>Image</TH>
-              <TH>Manage</TH>
+              <TH>{t("image")}</TH>
+              <TH>{t("manage")}</TH>
             </TR>
           </THREAD>
           <tbody>
@@ -219,8 +223,7 @@ export default SingleCollection;
 const SingleCollectionContainer = styled.div`
   width: 100%;
   height: 100ch;
-  padding-left: 20px;
-  padding-right: 20px;
+
   position: relative;
 `;
 
@@ -318,6 +321,7 @@ const TH = styled.th`
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
+  padding: 4px;
 
   @media (max-width: 440px) {
     font-size: 16px;

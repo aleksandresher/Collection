@@ -55,6 +55,9 @@ function BiggestColl() {
                 <CollText>
                   {t("author")}: {collection.author}
                 </CollText>
+                <CollText>
+                  {t("category")}: {t(`categories.${collection.category}`)}
+                </CollText>
               </CollTextWrapper>
               <RatingContainer>
                 <RatingStar
@@ -119,7 +122,7 @@ const CollBox = styled.div`
   padding: 15px;
 
   height: 350px;
-  background-color: #edf3f5;
+  background-color: #fff;
   cursor: pointer;
 `;
 

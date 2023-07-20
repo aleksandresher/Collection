@@ -65,7 +65,11 @@ function UsersPage({ toggleStatus }) {
   }, []);
 
   useEffect(() => {
-    fetch("https://usercollection.onrender.com/collections/getCollections/" + userId, {})
+    fetch(
+      "https://usercollection.onrender.com/collections/getCollections/" +
+        userId,
+      {}
+    )
       .then((res) => {
         if (res.status !== 200) {
           console.log("Error retrieving collections.");
@@ -82,12 +86,15 @@ function UsersPage({ toggleStatus }) {
   }, [modal, checkState]);
 
   function deleteCollection(collectionId) {
-    fetch("https://usercollection.onrender.com/collections/delete/" + collectionId, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://usercollection.onrender.com/collections/delete/" + collectionId,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to update user");
@@ -149,8 +156,8 @@ function UsersPage({ toggleStatus }) {
               <TH>{t("name")}</TH>
               <TH>{t("description")}</TH>
               <TH>{t("category")}</TH>
-              <TH>Image</TH>
-              <TH>Manage</TH>
+              <TH>{t("image")}</TH>
+              <TH>{t("manage")}</TH>
             </TR>
           </THREAD>
           <tbody>
@@ -272,10 +279,8 @@ const UsersContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 100%;
   height: 100ch;
-  padding-left: 20px;
-  padding-right: 20px;
+
   // background-color: #364652;
   position: relative;
 `;
@@ -332,6 +337,7 @@ const TH = styled.th`
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
+  padding: 4px;
 
   @media (max-width: 440px) {
     font-size: 16px;

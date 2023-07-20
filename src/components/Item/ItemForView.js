@@ -9,6 +9,7 @@ function ItemForView() {
   const { collectionId, itemId } = useParams();
   const [item, setItem] = useState();
   const [tagItem, setTagItem] = useState();
+  const userId = localStorage.getItem("userId");
   console.log(`collectionId: ${collectionId}, itemId: ${itemId}`);
   useEffect(() => {
     fetch(
@@ -43,6 +44,32 @@ function ItemForView() {
         console.log(err);
       });
   }, []);
+
+  function likeItem(userId, collectionId, itemId) {
+    fetch(
+      `https://usercollection.onrender.com/collections/likeItem/${userId}/${collectionId}/${itemId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        if (res.status !== 200) {
+          console.log("Error updating collections.");
+          throw new Error("Failed to update collections.");
+        }
+        return res.json();
+      })
+      .then((resData) => {
+        console.log(resData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <SingleItemWrapper>
       {item ? (
@@ -58,7 +85,10 @@ function ItemForView() {
             {item?.createdAt && new Date(item.createdAt).toLocaleString()}
           </p>
           <LikeContainer>
-            <LikeIcon src={process.env.PUBLIC_URL + "/assets/like.png"} />
+            <LikeIcon
+              src={process.env.PUBLIC_URL + "/assets/like.png"}
+              onClick={() => likeItem(userId, collectionId, itemId)}
+            />
             <p>{item?.likeCount}</p>
           </LikeContainer>
 

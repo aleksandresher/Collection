@@ -9,6 +9,7 @@ function CommentSection({ itemId, collectionId, item }) {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
   const [fetchedComments, setFetchedComments] = useState("");
+  const [updateValue, setUpdateValue] = useState(false);
   const userId = localStorage.getItem("userId");
   console.log(`collectionId: ${collectionId}, itemId: ${itemId}`);
 
@@ -35,6 +36,7 @@ function CommentSection({ itemId, collectionId, item }) {
       })
       .then((resData) => {
         console.log(resData);
+        setUpdateValue((prev) => !prev);
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +62,7 @@ function CommentSection({ itemId, collectionId, item }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [updateValue]);
 
   return (
     <CommentWrapper>
@@ -95,6 +97,10 @@ const CommentWrapper = styled.div`
   width: 500px;
   height: 500px;
   justify-content: space-between;
+
+  @media (max-width: 440px) {
+    width: 400px;
+  }
 `;
 
 const AddBtn = styled.button`
