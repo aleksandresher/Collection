@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { io } from "socket.io-client";
-const socket = io("http://localhost:8080");
+const socket = io("https://usercollection.onrender.com");
 
 function CommentSection({ itemId, collectionId, item }) {
   const { t } = useTranslation();
