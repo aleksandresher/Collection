@@ -79,6 +79,7 @@ export default BiggestColl;
 
 const BiggestCollsWrapper = styled.div`
   display: flex;
+
   flex-direction: column;
   margin-top: 40px;
   gap: 20px;
@@ -99,6 +100,10 @@ const BiggestCollsContainer = styled.div`
   width: 80%;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
+
+  @media (max-width: 1110px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   @media (max-width: 440px) {
     grid-template-columns: 1fr;

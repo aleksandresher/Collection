@@ -225,6 +225,12 @@ const LogoutBtn = styled.button`
     width: 120px;
     margin-left: 20px;
   }
+
+  @media (max-width: 720px) {
+    width: 120px;
+    position: absolute;
+    left: 300px;
+  }
   @media (max-width: 440px) {
     position: absolute;
     left: 250px;
@@ -291,6 +297,12 @@ const AdminSubContainer = styled.div`
   gap: 15px;
 
   padding: 15px;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+  }
 
   @media (max-width: 440px) {
     flex-direction: column;

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import CommentSection from "../Comments/CommentSection";
 
 function ItemForView() {
   const { t } = useTranslation();
@@ -10,6 +11,8 @@ function ItemForView() {
   const [item, setItem] = useState();
   const [tagItem, setTagItem] = useState();
   const userId = localStorage.getItem("userId");
+  const [names, setNames] = useState();
+  const [namesModal, setNamesModal] = useState(false);
   console.log(`collectionId: ${collectionId}, itemId: ${itemId}`);
   useEffect(() => {
     fetch(
@@ -70,6 +73,30 @@ function ItemForView() {
       });
   }
 
+  function fetchUsernames(userIds) {
+    return fetch("https://usercollection.onrender.com/users/getUsersNames", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userIds }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to retrieve usernames");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setNames(data.usernames);
+        setNamesModal(true);
+      })
+      .catch((error) => {
+        console.error("Error retrieving usernames:", error);
+        throw error;
+      });
+  }
+
   return (
     <SingleItemWrapper>
       {item ? (
@@ -88,8 +115,17 @@ function ItemForView() {
             <LikeIcon
               src={process.env.PUBLIC_URL + "/assets/like.png"}
               onClick={() => likeItem(userId, collectionId, itemId)}
+              onMouseEnter={() => fetchUsernames(item?.likes)}
+              onMouseLeave={() => setNamesModal(false)}
             />
             <p>{item?.likeCount}</p>
+            {namesModal && (
+              <NameList>
+                {names.map((name, index) => (
+                  <li key={index}>{name}</li>
+                ))}
+              </NameList>
+            )}
           </LikeContainer>
 
           <CommentContainer>
@@ -100,6 +136,7 @@ function ItemForView() {
               </CommentBox>
             ))}
           </CommentContainer>
+          <CommentSection />
         </SingleItemContainer>
       ) : (
         <SingleItemContainer>
@@ -122,6 +159,12 @@ function ItemForView() {
               </CommentBox>
             ))}
           </CommentContainer>
+          <CommentSection
+            userId={userId}
+            itemId={itemId}
+            collectionId={collectionId}
+            item={item}
+          />
         </SingleItemContainer>
       )}
     </SingleItemWrapper>
@@ -196,4 +239,13 @@ const LikeContainer = styled.div`
 const LikeIcon = styled.img`
   width: 16px;
   height: 16px;
+`;
+const NameList = styled.ul`
+  width: 150px;
+  padding: 10px;
+  background-color: #faf3f2;
+  position: absolute;
+  left: 80px;
+  border-radius: 8px;
+  list-style: none;
 `;

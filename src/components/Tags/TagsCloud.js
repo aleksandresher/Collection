@@ -79,6 +79,11 @@ const TagsContainer = styled.div`
   justify-content: center;
 
   gap: 10px;
+
+  @media (max-width: 1110px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   @media (max-width: 440px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -87,6 +92,7 @@ const TagsContainer = styled.div`
 const TagsBox = styled.div`
   display: flex;
   align-items: center;
+
   height: 30px;
   background-color: rgba(0, 0, 0, 0.03);
   padding: 10px;
